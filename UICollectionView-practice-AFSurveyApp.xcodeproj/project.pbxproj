@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		38DC81A61BCAAA07002A3B80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81A51BCAAA07002A3B80 /* main.m */; };
+		38DC81A91BCAAA07002A3B80 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81A81BCAAA07002A3B80 /* AppDelegate.m */; };
+		38DC81AB1BCAAA07002A3B80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DC81AA1BCAAA07002A3B80 /* Assets.xcassets */; };
+		38DC81AE1BCAAA07002A3B80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38DC81AC1BCAAA07002A3B80 /* LaunchScreen.storyboard */; };
+		38DC81BA1BCABD2C002A3B80 /* ABCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81B91BCABD2C002A3B80 /* ABCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38DC81BD1BCABD51002A3B80 /* ABCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81BC1BCABD51002A3B80 /* ABCollectionHeaderView.m */; settings = {ASSET_TAGS = (); }; };
+		38DC81C01BCABD68002A3B80 /* ABCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81BF1BCABD68002A3B80 /* ABCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		38DC81C31BCABD89002A3B80 /* ABSelectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81C21BCABD89002A3B80 /* ABSelectionModel.m */; settings = {ASSET_TAGS = (); }; };
+		38DC81C61BCABD97002A3B80 /* ABPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81C51BCABD97002A3B80 /* ABPhotoModel.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		38DC81A11BCAAA07002A3B80 /* UICollectionView-practice-AFSurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UICollectionView-practice-AFSurveyApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38DC81A51BCAAA07002A3B80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		38DC81A71BCAAA07002A3B80 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		38DC81A81BCAAA07002A3B80 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		38DC81AA1BCAAA07002A3B80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38DC81AD1BCAAA07002A3B80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		38DC81AF1BCAAA07002A3B80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38DC81B81BCABD2C002A3B80 /* ABCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCollectionViewController.h; sourceTree = "<group>"; };
+		38DC81B91BCABD2C002A3B80 /* ABCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCollectionViewController.m; sourceTree = "<group>"; };
+		38DC81BB1BCABD51002A3B80 /* ABCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCollectionHeaderView.h; sourceTree = "<group>"; };
+		38DC81BC1BCABD51002A3B80 /* ABCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCollectionHeaderView.m; sourceTree = "<group>"; };
+		38DC81BE1BCABD68002A3B80 /* ABCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCollectionViewCell.h; sourceTree = "<group>"; };
+		38DC81BF1BCABD68002A3B80 /* ABCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCollectionViewCell.m; sourceTree = "<group>"; };
+		38DC81C11BCABD89002A3B80 /* ABSelectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSelectionModel.h; sourceTree = "<group>"; };
+		38DC81C21BCABD89002A3B80 /* ABSelectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSelectionModel.m; sourceTree = "<group>"; };
+		38DC81C41BCABD97002A3B80 /* ABPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABPhotoModel.h; sourceTree = "<group>"; };
+		38DC81C51BCABD97002A3B80 /* ABPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABPhotoModel.m; sourceTree = "<group>"; };
+		38DC81C71BCAC258002A3B80 /* UICollectionView-practice-AFSurveyApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView-practice-AFSurveyApp-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38DC819E1BCAAA06002A3B80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38DC81981BCAAA06002A3B80 = {
+			isa = PBXGroup;
+			children = (
+				38DC81A31BCAAA07002A3B80 /* UICollectionView-practice-AFSurveyApp */,
+				38DC81A21BCAAA07002A3B80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38DC81A21BCAAA07002A3B80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38DC81A11BCAAA07002A3B80 /* UICollectionView-practice-AFSurveyApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38DC81A31BCAAA07002A3B80 /* UICollectionView-practice-AFSurveyApp */ = {
+			isa = PBXGroup;
+			children = (
+				38DC81B51BCABCE6002A3B80 /* Controllers */,
+				38DC81B71BCABCF6002A3B80 /* Views */,
+				38DC81B61BCABCF0002A3B80 /* Models */,
+				38DC81A71BCAAA07002A3B80 /* AppDelegate.h */,
+				38DC81A81BCAAA07002A3B80 /* AppDelegate.m */,
+				38DC81A41BCAAA07002A3B80 /* Supporting Files */,
+			);
+			path = "UICollectionView-practice-AFSurveyApp";
+			sourceTree = "<group>";
+		};
+		38DC81A41BCAAA07002A3B80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38DC81C71BCAC258002A3B80 /* UICollectionView-practice-AFSurveyApp-Prefix.pch */,
+				38DC81AA1BCAAA07002A3B80 /* Assets.xcassets */,
+				38DC81AC1BCAAA07002A3B80 /* LaunchScreen.storyboard */,
+				38DC81AF1BCAAA07002A3B80 /* Info.plist */,
+				38DC81A51BCAAA07002A3B80 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38DC81B51BCABCE6002A3B80 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				38DC81B81BCABD2C002A3B80 /* ABCollectionViewController.h */,
+				38DC81B91BCABD2C002A3B80 /* ABCollectionViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		38DC81B61BCABCF0002A3B80 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				38DC81C11BCABD89002A3B80 /* ABSelectionModel.h */,
+				38DC81C21BCABD89002A3B80 /* ABSelectionModel.m */,
+				38DC81C41BCABD97002A3B80 /* ABPhotoModel.h */,
+				38DC81C51BCABD97002A3B80 /* ABPhotoModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		38DC81B71BCABCF6002A3B80 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38DC81BB1BCABD51002A3B80 /* ABCollectionHeaderView.h */,
+				38DC81BC1BCABD51002A3B80 /* ABCollectionHeaderView.m */,
+				38DC81BE1BCABD68002A3B80 /* ABCollectionViewCell.h */,
+				38DC81BF1BCABD68002A3B80 /* ABCollectionViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38DC81A01BCAAA06002A3B80 /* UICollectionView-practice-AFSurveyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38DC81B21BCAAA07002A3B80 /* Build configuration list for PBXNativeTarget "UICollectionView-practice-AFSurveyApp" */;
+			buildPhases = (
+				38DC819D1BCAAA06002A3B80 /* Sources */,
+				38DC819E1BCAAA06002A3B80 /* Frameworks */,
+				38DC819F1BCAAA06002A3B80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UICollectionView-practice-AFSurveyApp";
+			productName = "UICollectionView-practice-AFSurveyApp";
+			productReference = 38DC81A11BCAAA07002A3B80 /* UICollectionView-practice-AFSurveyApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38DC81991BCAAA06002A3B80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Amitai Blickstein, LLC";
+				TargetAttributes = {
+					38DC81A01BCAAA06002A3B80 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 38DC819C1BCAAA06002A3B80 /* Build configuration list for PBXProject "UICollectionView-practice-AFSurveyApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 38DC81981BCAAA06002A3B80;
+			productRefGroup = 38DC81A21BCAAA07002A3B80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38DC81A01BCAAA06002A3B80 /* UICollectionView-practice-AFSurveyApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38DC819F1BCAAA06002A3B80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38DC81AB1BCAAA07002A3B80 /* Assets.xcassets in Resources */,
+				38DC81AE1BCAAA07002A3B80 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38DC819D1BCAAA06002A3B80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38DC81BA1BCABD2C002A3B80 /* ABCollectionViewController.m in Sources */,
+				38DC81C61BCABD97002A3B80 /* ABPhotoModel.m in Sources */,
+				38DC81C01BCABD68002A3B80 /* ABCollectionViewCell.m in Sources */,
+				38DC81A91BCAAA07002A3B80 /* AppDelegate.m in Sources */,
+				38DC81C31BCABD89002A3B80 /* ABSelectionModel.m in Sources */,
+				38DC81BD1BCABD51002A3B80 /* ABCollectionHeaderView.m in Sources */,
+				38DC81A61BCAAA07002A3B80 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		38DC81AC1BCAAA07002A3B80 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38DC81AD1BCAAA07002A3B80 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38DC81B01BCAAA07002A3B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		38DC81B11BCAAA07002A3B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38DC81B31BCAAA07002A3B80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "/Users/amitai/Dev/Test Area/Ash-Furrow-Book-Projects/3rd-Ch-UICollectionViews-AFurrow-SurveyApp/UICollectionView-practice-AFSurveyApp/UICollectionView-practice-AFSurveyApp/UICollectionView-practice-AFSurveyApp-Prefix.pch";
+				INFOPLIST_FILE = "UICollectionView-practice-AFSurveyApp/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.objective-v.UICollectionView-practice-AFSurveyApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		38DC81B41BCAAA07002A3B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "/Users/amitai/Dev/Test Area/Ash-Furrow-Book-Projects/3rd-Ch-UICollectionViews-AFurrow-SurveyApp/UICollectionView-practice-AFSurveyApp/UICollectionView-practice-AFSurveyApp/UICollectionView-practice-AFSurveyApp-Prefix.pch";
+				INFOPLIST_FILE = "UICollectionView-practice-AFSurveyApp/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.objective-v.UICollectionView-practice-AFSurveyApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38DC819C1BCAAA06002A3B80 /* Build configuration list for PBXProject "UICollectionView-practice-AFSurveyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38DC81B01BCAAA07002A3B80 /* Debug */,
+				38DC81B11BCAAA07002A3B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38DC81B21BCAAA07002A3B80 /* Build configuration list for PBXNativeTarget "UICollectionView-practice-AFSurveyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38DC81B31BCAAA07002A3B80 /* Debug */,
+				38DC81B41BCAAA07002A3B80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 38DC81991BCAAA06002A3B80 /* Project object */;
+}
