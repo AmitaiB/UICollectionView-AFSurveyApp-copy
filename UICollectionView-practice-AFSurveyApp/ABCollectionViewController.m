@@ -137,6 +137,34 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
 
 #pragma mark -
 #pragma mark - === UICollectionViewDelegateFlowLayout Methods ===
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+        //!!!: Librarius!
+        //Provides a different size for each individual cell
+    
+        //Grab the photo model for the cell
+    ABPhotoModel *photoModel = [self photoModelForIndexPath:indexPath];
+    
+        //Determine the size and aspect ration for the model's image
+    CGSize photoSize = photoModel.image.size;
+    CGFloat aspectRatio = photoSize.width / photoSize.height;
+    
+        //Start out with the detail image size of the maximum size
+    CGSize itemSize = kMaxItemSize;
+    
+    if (aspectRatio < 1) {
+            //The photo is taller than it is wide, so constrain the width
+        itemSize = CGSizeMake(kMaxItemSize.width * aspectRatio, kMaxItemSize.height);
+    }
+    else if (aspectRatio > 1) {
+            //The photo is wider than it is tall, so constrain the height
+        itemSize = CGSizeMake(kMaxItemSize.width, kMaxItemSize.height * aspectRatio);
+    }
+    
+    return itemSize;
+}
+
+
 #pragma mark Header
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
         //Provides a view for the headers in the collection view
