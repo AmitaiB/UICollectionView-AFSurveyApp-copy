@@ -189,7 +189,7 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
         currentModelArrayIndex++;
         [collectionView insertSections:[NSIndexSet indexSetWithIndex:currentModelArrayIndex]];
     } completion:^(BOOL finished) {
-        
+        [collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:currentModelArrayIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     }];
 }
 
