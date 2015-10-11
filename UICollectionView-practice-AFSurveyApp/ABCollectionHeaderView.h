@@ -10,4 +10,6 @@
 
 @interface ABCollectionHeaderView : UICollectionReusableView
 
+@property (nonatomic, copy) NSString *text;
+
 @end
