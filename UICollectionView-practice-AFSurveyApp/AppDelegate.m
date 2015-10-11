@@ -9,10 +9,6 @@
 #import "AppDelegate.h"
 #import "ABCollectionViewController.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
 
 
@@ -20,11 +16,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     
-    self.viewController = [[ABCollectionViewController alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
+    self.viewController = [[ABCollectionViewController alloc] init];
     
     self.window.rootViewController = self.viewController;
     
-    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

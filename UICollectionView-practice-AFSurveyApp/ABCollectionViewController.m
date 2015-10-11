@@ -22,14 +22,14 @@
 
 @interface ABCollectionViewController (Private)
 
-    //Don't worry about this.
+    //Don't worry about this, just sets up the data.
 -(void)setupModel;
 
 @end
 
 @implementation ABCollectionViewController {
         //Array of section objects
-    NSArray *sectionModelArray;
+    NSArray *selectionModelArray;
         //Our current index within the sectionModelArray
     NSUInteger currentModelArrayIndex;
         //Whether or not we've completed the survey
@@ -40,9 +40,9 @@ static NSString *CellReuseIdentifier = @"CellID";
 static NSString *HeaderReuseIdentifier = @"HeaderID";
 
     ///!!!: AF put it all in 'loadView' *and* didn't call '[super loadView]'.  Why???
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    //Because it doesn't initialize without a layout...?
+-(void)loadView {
+//    [super loadView];
 
         //Create our view
         //Create a basic flow layout that will accomodate 3 columns in portrait
@@ -59,25 +59,16 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     surveyCollectionView.delegate = self;
     
         // Register classes
+    [surveyCollectionView registerClass:[ABCollectionViewCell class] forCellWithReuseIdentifier:CellReuseIdentifier];
     [surveyCollectionView registerClass:[ABCollectionHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HeaderReuseIdentifier];
     
-    // Do any additional setup after loading the view.
+        //Set up the collection view geometry to cover the whole screen in any orientation and other view properties
+    surveyCollectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    surveyCollectionView.opaque = NO;
+    surveyCollectionView.backgroundColor = [UIColor clearColor];
+    
+        //Fina
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -85,13 +76,13 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
         //Return the smallest of either our curent model index plus one, or our total number of sections.
         //This will show 1 section when we only want to display section zero, etc.
         //It will prevent us from returning 11 when we only have 10 sections.
-    return MIN(currentModelArrayIndex + 1, sectionModelArray.count);
+    return MIN(currentModelArrayIndex + 1, selectionModelArray.count);
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
         //Return the number of photos in the section model
-    return [[sectionModelArray[currentModelArrayIndex] photoModels] count];
+    return [[selectionModelArray[currentModelArrayIndex] photoModels] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -152,7 +143,7 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     else if (indexPath.section <= currentModelArrayIndex)
     {
             //Otherwise, display a prompt using the selected photo from the previous section
-        ABSectionModel *sectionModel = sectionModelArray[indexPath.section - 1];
+        ABSectionModel *sectionModel = selectionModelArray[indexPath.section - 1];
 
         NSIndexPath *selectedPhotoIndex = [NSIndexPath indexPathForItem:sectionModel.selectedPhotoModelIndex inSection:indexPath.section - 1];
         ABPhotoModel *selectedPhotoModel = [self photoModelForIndexPath:selectedPhotoIndex];
@@ -172,9 +163,9 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
         //Set the selected photo index
-    [sectionModelArray[currentModelArrayIndex] setSelectedPhotoModelIndex:indexPath.item];
+    [selectionModelArray[currentModelArrayIndex] setSelectedPhotoModelIndex:indexPath.item];
     
-    if (currentModelArrayIndex >= sectionModelArray.count - 1) {
+    if (currentModelArrayIndex >= selectionModelArray.count - 1) {
             //Let's just present some dialogue so the user knows we're finished.
         
         isFinished = YES;
@@ -200,10 +191,10 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     //Handy dandy - returns the photo model at any index path
 -(ABPhotoModel*)photoModelForIndexPath:(NSIndexPath*)indexPath
 {
-    if (indexPath.section >= sectionModelArray.count) return nil;
-    if (indexPath.row >= [sectionModelArray[indexPath.section] photoModels].count) return nil;
+    if (indexPath.section >= selectionModelArray.count) return nil;
+    if (indexPath.row >= [selectionModelArray[indexPath.section] photoModels].count) return nil;
     
-    return [sectionModelArray[indexPath.section] photoModels][indexPath.item];
+    return [selectionModelArray[indexPath.section] photoModels][indexPath.item];
 }
 
 -(void)configureCell:(ABCollectionViewCell*)cell forIndexPath:(NSIndexPath*)indexPath {
@@ -219,7 +210,7 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
         [cell setDisabled:YES];
         
             //If the cell was selected by the user previously, select it now
-        if (indexPath.row == [sectionModelArray[indexPath.section]selectedPhotoModelIndex]) {
+        if (indexPath.row == [selectionModelArray[indexPath.section]selectedPhotoModelIndex]) {
             [cell setSelected:YES];
         }
     }
@@ -291,7 +282,7 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
                                                                          [ABPhotoModel photoModelWithName:@"Montréal Subway Selective Colour" image:[UIImage imageNamed:@"28.jpg"]],
                                                                          [ABPhotoModel photoModelWithName:@"On Air" image:[UIImage imageNamed:@"29.jpg"]]]]]];
 
-    sectionModelArray = [NSArray arrayWithArray:mutableArray];
+    selectionModelArray = [NSArray arrayWithArray:mutableArray];
 }
 
 @end
