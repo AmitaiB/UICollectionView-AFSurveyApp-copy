@@ -81,23 +81,28 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+        //Return the smallest of either our curent model index plus one, or our total number of sections.
+        //This will show 1 section when we only want to display section zero, etc.
+        //It will prevent us from returning 11 when we only have 10 sections.
+    return MIN(currentModelArrayIndex + 1, sectionModelArray.count);
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+        //Return the number of photos in the section model
+    return [[sectionModelArray[currentModelArrayIndex] photoModels] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellReuseIdentifier forIndexPath:indexPath];
+    ABCollectionViewCell *cell = (ABCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellReuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     
     return cell;
 }
+
+
+
 
 #pragma mark <UICollectionViewDelegate>
 
@@ -166,6 +171,11 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     
     return [sectionModelArray[indexPath.section] photoModels][indexPath.item];
 }
+
+-(void)configureCell:(ABCollectionViewCell*)cell forIndexPath:(NSIndexPath*)indexPath {
+        //Set the image for the cell
+}
+
 
 @end
                                           
