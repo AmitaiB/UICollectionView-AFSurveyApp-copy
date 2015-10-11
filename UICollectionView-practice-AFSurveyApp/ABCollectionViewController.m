@@ -40,6 +40,7 @@ static NSString *CellReuseIdentifier = @"CellID";
 static NSString *HeaderReuseIdentifier = @"HeaderID";
 
     ///!!!: AF put it all in 'loadView' *and* didn't call '[super loadView]'.  Why???
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -160,6 +161,38 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     }
     
     return headerView;
+}
+
+#pragma mark - === Interaction ===
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+        //The user has selected a cell
+    
+        //No matter what, deselect that cell
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+        //Set the selected photo index
+    [sectionModelArray[currentModelArrayIndex] setSelectedPhotoModelIndex:indexPath.item];
+    
+    if (currentModelArrayIndex >= sectionModelArray.count - 1) {
+            //Let's just present some dialogue so the user knows we're finished.
+        
+        isFinished = YES;
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Recommendation Engine" message:@"Based on your selections, we have concluded you have excellent taste in photography!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Gee, thanks (OK)" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        return;
+    }
+    
+    [collectionView performBatchUpdates:^{
+        currentModelArrayIndex++;
+        [collectionView insertSections:[NSIndexSet indexSetWithIndex:currentModelArrayIndex]];
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 #pragma mark - Private Custom Methods

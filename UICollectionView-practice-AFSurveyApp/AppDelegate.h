@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class ABCollectionViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, strong) ABCollectionViewController *viewController;
 
 
 @end

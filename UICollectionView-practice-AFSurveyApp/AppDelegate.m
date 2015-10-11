@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ABCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
+    
+    self.viewController = [[ABCollectionViewController alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
+    
+    self.window.rootViewController = self.viewController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
