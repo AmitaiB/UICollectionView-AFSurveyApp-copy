@@ -14,7 +14,7 @@
 		38DC81BA1BCABD2C002A3B80 /* ABCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81B91BCABD2C002A3B80 /* ABCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		38DC81BD1BCABD51002A3B80 /* ABCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81BC1BCABD51002A3B80 /* ABCollectionHeaderView.m */; settings = {ASSET_TAGS = (); }; };
 		38DC81C01BCABD68002A3B80 /* ABCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81BF1BCABD68002A3B80 /* ABCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		38DC81C31BCABD89002A3B80 /* ABSelectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81C21BCABD89002A3B80 /* ABSelectionModel.m */; settings = {ASSET_TAGS = (); }; };
+		38DC81C31BCABD89002A3B80 /* ABSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81C21BCABD89002A3B80 /* ABSectionModel.m */; settings = {ASSET_TAGS = (); }; };
 		38DC81C61BCABD97002A3B80 /* ABPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC81C51BCABD97002A3B80 /* ABPhotoModel.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -32,8 +32,8 @@
 		38DC81BC1BCABD51002A3B80 /* ABCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCollectionHeaderView.m; sourceTree = "<group>"; };
 		38DC81BE1BCABD68002A3B80 /* ABCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCollectionViewCell.h; sourceTree = "<group>"; };
 		38DC81BF1BCABD68002A3B80 /* ABCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCollectionViewCell.m; sourceTree = "<group>"; };
-		38DC81C11BCABD89002A3B80 /* ABSelectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSelectionModel.h; sourceTree = "<group>"; };
-		38DC81C21BCABD89002A3B80 /* ABSelectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSelectionModel.m; sourceTree = "<group>"; };
+		38DC81C11BCABD89002A3B80 /* ABSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSectionModel.h; sourceTree = "<group>"; };
+		38DC81C21BCABD89002A3B80 /* ABSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSectionModel.m; sourceTree = "<group>"; };
 		38DC81C41BCABD97002A3B80 /* ABPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABPhotoModel.h; sourceTree = "<group>"; };
 		38DC81C51BCABD97002A3B80 /* ABPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABPhotoModel.m; sourceTree = "<group>"; };
 		38DC81C71BCAC258002A3B80 /* UICollectionView-practice-AFSurveyApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView-practice-AFSurveyApp-Prefix.pch"; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 		38DC81B61BCABCF0002A3B80 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				38DC81C11BCABD89002A3B80 /* ABSelectionModel.h */,
-				38DC81C21BCABD89002A3B80 /* ABSelectionModel.m */,
+				38DC81C11BCABD89002A3B80 /* ABSectionModel.h */,
+				38DC81C21BCABD89002A3B80 /* ABSectionModel.m */,
 				38DC81C41BCABD97002A3B80 /* ABPhotoModel.h */,
 				38DC81C51BCABD97002A3B80 /* ABPhotoModel.m */,
 			);
@@ -195,7 +195,7 @@
 				38DC81C61BCABD97002A3B80 /* ABPhotoModel.m in Sources */,
 				38DC81C01BCABD68002A3B80 /* ABCollectionViewCell.m in Sources */,
 				38DC81A91BCAAA07002A3B80 /* AppDelegate.m in Sources */,
-				38DC81C31BCABD89002A3B80 /* ABSelectionModel.m in Sources */,
+				38DC81C31BCABD89002A3B80 /* ABSectionModel.m in Sources */,
 				38DC81BD1BCABD51002A3B80 /* ABCollectionHeaderView.m in Sources */,
 				38DC81A61BCAAA07002A3B80 /* main.m in Sources */,
 			);
