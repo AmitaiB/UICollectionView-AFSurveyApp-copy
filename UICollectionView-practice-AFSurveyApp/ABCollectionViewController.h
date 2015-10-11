@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ABCollectionViewController : UICollectionViewController
+    //We add the UICollectionViewDelegateFlowLayout for some per-item customization
+@interface ABCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 
 @end
