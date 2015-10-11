@@ -97,6 +97,7 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     ABCollectionViewCell *cell = (ABCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellReuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
+    [self configureCell:cell forIndexPath:indexPath];
     
     return cell;
 }
@@ -174,6 +175,21 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
 
 -(void)configureCell:(ABCollectionViewCell*)cell forIndexPath:(NSIndexPath*)indexPath {
         //Set the image for the cell
+    [cell setImage:[self photoModelForIndexPath:indexPath].image];
+    
+        //By default, assume the cell is not disabled and unselected
+    [cell setDisabled:NO];
+    [cell setSelected:NO];
+    
+        //If the cell is not in our current last index, disable it
+    if (indexPath.section < currentModelArrayIndex) {
+        [cell setDisabled:YES];
+        
+            //If the cell was selected by the user previously, select it now
+        if (indexPath.row == [sectionModelArray[indexPath.section]selectedPhotoModelIndex]) {
+            [cell setSelected:YES];
+        }
+    }
 }
 
 
