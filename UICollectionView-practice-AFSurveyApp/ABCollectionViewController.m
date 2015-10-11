@@ -67,7 +67,14 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     surveyCollectionView.opaque = NO;
     surveyCollectionView.backgroundColor = [UIColor clearColor];
     
-        //Fina
+        //Finally, set our collectionView to the one we have been tinkering with.
+    self.collectionView = surveyCollectionView;
+    
+        //Set up our model
+    [self setupModel];
+    
+        //We start at zero
+    currentModelArrayIndex = 0;
 }
 
 #pragma mark <UICollectionViewDataSource>
