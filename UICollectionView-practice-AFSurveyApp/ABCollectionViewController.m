@@ -158,12 +158,35 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     }
     else if (aspectRatio > 1) {
             //The photo is wider than it is tall, so constrain the height
-        itemSize = CGSizeMake(kMaxItemSize.width, kMaxItemSize.height * aspectRatio);
+        itemSize = CGSizeMake(kMaxItemSize.width, kMaxItemSize.height / aspectRatio);
     }
     
     return itemSize;
 }
 
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == currentModelArrayIndex && !isFinished;
+}
+
+#pragma mark Tap and Hold Gesture
+
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+    if ([NSStringFromSelector(action) isEqualToString:@"copy:"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+    if ([NSStringFromSelector(action) isEqualToString:@"copy:"]) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        [pasteboard setString:[self photoModelForIndexPath:indexPath].name];
+    }
+}
 
 #pragma mark Header
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
