@@ -34,7 +34,7 @@
     BOOL isFinished;
     
         //DEBUG:
-    NSMutableArray <CGFlo*> *sizesRecord;
+    NSMutableArray *sizesRecord;
 }
 
 static NSString *CellReuseIdentifier = @"CellID";
@@ -45,6 +45,8 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
 -(void)loadView {
 //    [super loadView];
 
+    sizesRecord = [NSMutableArray new];
+    
         //Create our view
         //Create a basic flow layout that will accomodate 3 columns in portrait
     ABFlowLayout *surveyFlowLayout = [ABFlowLayout new];
