@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+    //In the header for other files to use.
 #define kMaxItemDimension  200.0f
 #define kMaxItemSize       CGSizeMake(kMaxItemDimension, kMaxItemDimension)
 

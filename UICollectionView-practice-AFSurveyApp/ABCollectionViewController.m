@@ -16,9 +16,7 @@
 #import "ABPhotoModel.h"
 #import "ABSectionModel.h"
 
-//Not technically required, but useful (AF)
-#define kMaxItemSize CGSizeMake(200, 200)
-
+#import "ABFlowLayout.h"
 
 @interface ABCollectionViewController (Private)
 
@@ -34,6 +32,9 @@
     NSUInteger currentModelArrayIndex;
         //Whether or not we've completed the survey
     BOOL isFinished;
+    
+        //DEBUG:
+    NSMutableArray <CGFlo*> *sizesRecord;
 }
 
 static NSString *CellReuseIdentifier = @"CellID";
@@ -46,12 +47,7 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
 
         //Create our view
         //Create a basic flow layout that will accomodate 3 columns in portrait
-    UICollectionViewFlowLayout *surveyFlowLayout = [UICollectionViewFlowLayout new];
-    surveyFlowLayout.sectionInset = UIEdgeInsetsMake(30.0f, 80.0f, 30.0f, 20.0f);
-    surveyFlowLayout.minimumInteritemSpacing = 20.0f;
-    surveyFlowLayout.minimumLineSpacing = 20.0f;
-    surveyFlowLayout.itemSize = kMaxItemSize;
-    surveyFlowLayout.headerReferenceSize = CGSizeMake(60, 50); //<--important! default is CGSizeZero!
+    ABFlowLayout *surveyFlowLayout = [ABFlowLayout new];
 
         //Create a new collection view with our flow layout and set ourself as delegate and data source
     UICollectionView *surveyCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:surveyFlowLayout];

@@ -53,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38251CF31BCBAF5B008D4BBF /* CollectionView Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				38251CF01BCBAE69008D4BBF /* ABFlowLayout.h */,
+				38251CF11BCBAE69008D4BBF /* ABFlowLayout.m */,
+			);
+			name = "CollectionView Extensions";
+			sourceTree = "<group>";
+		};
 		38DC81981BCAAA06002A3B80 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				38DC81B51BCABCE6002A3B80 /* Controllers */,
+				38251CF31BCBAF5B008D4BBF /* CollectionView Extensions */,
 				38DC81B71BCABCF6002A3B80 /* Views */,
 				38DC81B61BCABCF0002A3B80 /* Models */,
 				38DC81A71BCAAA07002A3B80 /* AppDelegate.h */,
@@ -117,8 +127,6 @@
 		38DC81B71BCABCF6002A3B80 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				38251CF01BCBAE69008D4BBF /* ABFlowLayout.h */,
-				38251CF11BCBAE69008D4BBF /* ABFlowLayout.m */,
 				38DC81BB1BCABD51002A3B80 /* ABCollectionHeaderView.h */,
 				38DC81BC1BCABD51002A3B80 /* ABCollectionHeaderView.m */,
 				38DC81BE1BCABD68002A3B80 /* ABCollectionViewCell.h */,
