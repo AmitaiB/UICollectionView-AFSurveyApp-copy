@@ -32,20 +32,14 @@
     NSUInteger currentModelArrayIndex;
         //Whether or not we've completed the survey
     BOOL isFinished;
-    
-        //DEBUG:
-    NSMutableArray *sizesRecord;
 }
 
 static NSString *CellReuseIdentifier = @"CellID";
 static NSString *HeaderReuseIdentifier = @"HeaderID";
 
-    ///!!!: AF put it all in 'loadView' *and* didn't call '[super loadView]'.  Why???
-    //Because it doesn't initialize without a layout...?
+    ///!!!: AF put it all in 'loadView' *and* didn't call '[super loadView]'.  Why? My hypothesis is because we need to give the collectionView a layout before we try to load it...
 -(void)loadView {
 //    [super loadView];
-
-    sizesRecord = [NSMutableArray new];
     
         //Create our view
         //Create a basic flow layout that will accomodate 3 columns in portrait
@@ -147,6 +141,8 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     CGSize photoSize    = photoModel.image.size;
     CGFloat aspectRatio = photoSize.width / photoSize.height;
 
+    
+        ///============
         //Start out with the detail image size of the maximum size
     CGSize itemSize     = kMaxItemSize;
     
@@ -154,13 +150,24 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
             //The photo is taller than it is wide, so constrain the width
         itemSize = CGSizeMake(kMaxItemSize.width * aspectRatio, kMaxItemSize.height);
     }
-    else if (aspectRatio > 1) {
+    else if (aspectRatio > 1)
+    {
             //The photo is wider than it is tall, so constrain the height
         itemSize = CGSizeMake(kMaxItemSize.width, kMaxItemSize.height / aspectRatio);
     }
+        ///=============
+    
+//        //First and foremost, constrain the width!
+//    CGSize alternativeItemSize = kMaxItemSize;
+//    CGFloat numberOfImages = [self.collectionView numberOfItemsInSection:indexPath.section]; //Should be "3"
+//    CGFloat totalAvailableWidth = self.collectionView.contentSize.width - 20.0f * numberOfImages;
+//    CGFloat widthPerItem = totalAvailableWidth / numberOfImages;
+    
+//    more logiclivive
     
     return itemSize;
 }
+
 
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     return indexPath.section == currentModelArrayIndex && !isFinished;
@@ -262,11 +269,13 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
     [cell setSelected:NO];
     
         //If the cell is not in our current last index, disable it
-    if (indexPath.section < currentModelArrayIndex) {
+    if (indexPath.section < currentModelArrayIndex)
+    {
         [cell setDisabled:YES];
         
             //If the cell was selected by the user previously, select it now
-        if (indexPath.row == [selectionModelArray[indexPath.section]selectedPhotoModelIndex]) {
+        if (indexPath.row == [selectionModelArray[indexPath.section]selectedPhotoModelIndex])
+        {
             [cell setSelected:YES];
         }
     }

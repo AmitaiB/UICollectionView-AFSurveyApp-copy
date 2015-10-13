@@ -11,18 +11,22 @@
 
 NSString * const ABFlowLayoutDecorationViewID = @"DecorationViewID";
 
-@implementation ABFlowLayout
+@implementation ABFlowLayout {
+    NSMutableSet *insertedSectionSet;
+}
 
 -(instancetype)init {
     if (!(self = [super init])) return nil;
     
         //Create a basic flow layout that will accomodate 3 columns in portrait
-    self.sectionInset = UIEdgeInsetsMake(30.0f, 80.0f, 30.0f, 20.0f);
+    self.sectionInset            = UIEdgeInsetsMake(30.0f, 80.0f, 30.0f, 20.0f);
     self.minimumInteritemSpacing = 20.0f;
-    self.minimumLineSpacing = 20.0f;
-    self.itemSize = kMaxItemSize;
-    self.headerReferenceSize = CGSizeMake(60, 70); //<--important! default is CGSizeZero!
+    self.minimumLineSpacing      = 20.0f;
+    self.itemSize                = kMaxItemSize;
+    self.headerReferenceSize     = CGSizeMake(60, 70);//<--important! default is CGSizeZero, which means they would not be displayed.
     [self registerClass:[ABDecorationView class] forDecorationViewOfKind:ABFlowLayoutDecorationViewID];
+ 
+    insertedSectionSet = [NSMutableSet set];
     
     return self;
 }
@@ -91,6 +95,55 @@ NSString * const ABFlowLayoutDecorationViewID = @"DecorationViewID";
         decorationViewAttributes.zIndex = -1;
     }
     return decorationViewAttributes;
+}
+
+#pragma mark  ===Animation Support===
+
+-(void)prepareForCollectionViewUpdates:(NSArray<UICollectionViewUpdateItem *> *)updateItems {
+    [super prepareForCollectionViewUpdates:updateItems];
+    
+    [updateItems enumerateObjectsUsingBlock:^(UICollectionViewUpdateItem * _Nonnull updateItem, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (updateItem.updateAction == UICollectionUpdateActionInsert) {
+            [insertedSectionSet addObject:@(updateItem.indexPathAfterUpdate.section)];
+        }
+    }];
+}
+
+-(void)finalizeCollectionViewUpdates {
+    [super finalizeCollectionViewUpdates];
+    
+        //We only want the animation to affect the current
+        //group of photos.
+    [insertedSectionSet removeAllObjects];
+}
+
+-(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingDecorationElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)decorationIndexPath {
+        //returning nil will cause a crossfade
+    
+    UICollectionViewLayoutAttributes *layoutAttributes;
+    
+    if ([elementKind isEqualToString:ABFlowLayoutDecorationViewID]) {
+        if ([insertedSectionSet containsObject:@(decorationIndexPath.section)]) {
+            layoutAttributes = [self layoutAttributesForDecorationViewOfKind:elementKind atIndexPath:decorationIndexPath];
+            layoutAttributes.alpha = 0.0f;
+            layoutAttributes.transform3D = CATransform3DMakeTranslation(-CGRectGetWidth(layoutAttributes.frame), 0, 0);
+        }
+    }
+    
+    return layoutAttributes;
+}
+
+-(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
+        //returning nil will cause a crossfade
+    
+    UICollectionViewLayoutAttributes *layoutAttributes;
+    
+    if ([insertedSectionSet containsObject:@(itemIndexPath.section)]) {
+        layoutAttributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+        layoutAttributes.transform3D = CATransform3DMakeTranslation([self collectionViewContentSize].width, 0, 0);
+    }
+    
+    return layoutAttributes;
 }
 
 #pragma mark - Helper Methods
