@@ -143,12 +143,12 @@ static NSString *HeaderReuseIdentifier = @"HeaderID";
         //Grab the photo model for the cell
     ABPhotoModel *photoModel = [self photoModelForIndexPath:indexPath];
     
-        //Determine the size and aspect ration for the model's image
-    CGSize photoSize = photoModel.image.size;
+        //Determine the size and aspect ratio for the model's image
+    CGSize photoSize    = photoModel.image.size;
     CGFloat aspectRatio = photoSize.width / photoSize.height;
-    
+
         //Start out with the detail image size of the maximum size
-    CGSize itemSize = kMaxItemSize;
+    CGSize itemSize     = kMaxItemSize;
     
     if (aspectRatio < 1) {
             //The photo is taller than it is wide, so constrain the width
