@@ -7,7 +7,9 @@
 //
 
 #import "ABFlowLayout.h"
+#import "ABDecorationView.h"
 
+NSString * const ABFlowLayoutDecorationViewID = @"DecorationViewID";
 
 @implementation ABFlowLayout
 
@@ -20,6 +22,7 @@
     self.minimumLineSpacing = 20.0f;
     self.itemSize = kMaxItemSize;
     self.headerReferenceSize = CGSizeMake(60, 70); //<--important! default is CGSizeZero!
+    [self registerClass:[ABDecorationView class] forDecorationViewOfKind:ABFlowLayoutDecorationViewID];
     
     return self;
 }
@@ -32,9 +35,20 @@
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray *attributesArray = [super layoutAttributesForElementsInRect:rect];
     
+    NSMutableArray *newAttributesArray = [NSMutableArray array];
+    
     for (UICollectionViewLayoutAttributes *attributes in attributesArray) {
         [self applyLayoutAttributes:attributes];
+        
+        if (attributes.representedElementCategory == UICollectionElementCategorySupplementaryView) {
+            UICollectionViewLayoutAttributes *newAttributes = [self layoutAttributesForDecorationViewOfKind:ABFlowLayoutDecorationViewID atIndexPath:attributes.indexPath];
+            
+            [newAttributesArray addObject:newAttributes];
+        }
     }
+    
+    attributesArray = [attributesArray arrayByAddingObjectsFromArray:newAttributesArray];
+    
     return attributesArray;
 }
 
@@ -44,6 +58,39 @@
     [self applyLayoutAttributes:attributes];
     
     return attributes;
+}
+
+#pragma mark - Decoration View Layout attributes
+
+-(UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString *)decorationViewKind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewLayoutAttributes *decorationViewAttributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:decorationViewKind withIndexPath:indexPath];
+    
+    if ([decorationViewKind isEqualToString:ABFlowLayoutDecorationViewID]) {
+            // We need to identify and grab the tallest cell['s attributes], and make that height
+            // the minimum distance between one row and the next.
+        UICollectionViewLayoutAttributes *tallestCellAttributes;
+        NSInteger numberOfCellsInSection = [self.collectionView numberOfItemsInSection:indexPath.section];
+        
+        for (NSUInteger i = 0; i < numberOfCellsInSection; i++) {
+            NSIndexPath *cellIndexPath = [NSIndexPath indexPathForItem:i inSection:indexPath.section];
+            
+            UICollectionViewLayoutAttributes *cellAttributes = [self layoutAttributesForItemAtIndexPath:cellIndexPath];
+            
+            if (CGRectGetHeight(cellAttributes.frame) > CGRectGetHeight(tallestCellAttributes.frame))
+            {
+                tallestCellAttributes = cellAttributes;
+            }
+        }
+        
+        CGFloat decorationViewHeight = CGRectGetHeight(tallestCellAttributes.frame) + self.headerReferenceSize.height;
+        
+        decorationViewAttributes.size = CGSizeMake([self collectionViewContentSize].width, decorationViewHeight);
+        decorationViewAttributes.center = CGPointMake([self collectionViewContentSize].width / 2.0f, tallestCellAttributes.center.y);
+        decorationViewAttributes.frame = CGRectIntegral(decorationViewAttributes.frame);
+            // Place the decoration view behind all the cells
+        decorationViewAttributes.zIndex = -1;
+    }
+    return decorationViewAttributes;
 }
 
 #pragma mark - Helper Methods
